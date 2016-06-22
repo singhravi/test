@@ -1,0 +1,9 @@
+Maven Archtype problem
+Could not resolve archetype org.apache.maven.archetypes:maven-archetype-quickstart:RELEASE from any of the configured repositories.
+
+Could not resolve artifact org.apache.maven.archetypes:maven-archetype-quickstart:pom:RELEASE 
+
+Solution
+From Windows\preferences\Maven - restore all options to default
+Copy the settings.xml file .m2\settings.xml
+and remove the repository folder from .m2
