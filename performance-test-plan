@@ -1,0 +1,37 @@
+Performance test planning
+        Volume Projection
+        Load Calculation        
+                Peak Day Calculation        
+                Peak Hour Calculation        
+                Virtual Users Calculation
+                Delay time calculation
+                Application load calculation
+                DB load Calculation
+        Load Planning
+                Online Load Planning
+                Batch Load Planning        
+        Infrastructure Planning
+                Load runner instances
+                Test Web (Test Environment) setup
+                Application Changes (Credentials, Stubbing etc)
+                DB Setup
+                BMC Patrol Setup
+                CPM (UPS Capacity and Performance Management) interlock
+        QA Inputs
+        Meetings
+        Performance Test execution approach
+                Dry runs
+                Actual Runs
+                Performing Heap Analysis
+                Performing Thread Analysis
+                DB Store Procedure response times evaluation
+                Combined performance testing
+                Performance response time evaluation
+                Patrol Graphs during execution
+                CPM graphs during execution
+        Performance test closeout
+                Performance Management Plan completion
+                Review with Management & Capacity PM
+        Recommendations
+        Performance test plan & report
+        Executive Summary PPT
