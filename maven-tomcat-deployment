@@ -6,10 +6,11 @@ In Project pom.xml
  <artifactId>tomcat7-maven-plugin</artifactId>  
  <version>2.2</version>  
  <configuration>  
-  <url>http:// localhost:8080/manager/text</url>  
-  <server>TomcatServer</server>    *(From maven > settings.xml)*
-  <username>*yourtomcatusername*</username>  
-  <password>*yourtomcatpassword*</password>   
+  <url>http://localhost:8080/manager/text</url>  
+  <server>TomcatServer</server>
+  <username>admin</username>  
+  <password>youradminpassword</password>   
+  <path>/<yourcontextpath></path>
  </configuration>   
 </plugin>   
 
@@ -19,7 +20,7 @@ Tomcat conf/tomcat-users.xml
         <role rolename="manager-gui"/>  
         <role rolename="manager-script"/>   
         <role rolename="manager-jmx"/>
-        <user username="admin" password="yourpassword" roles="manager-script" />
+        <user username="admin" password="youradminpassword" roles="manager-script" />
         <user username="manager" password="managerpassword" roles="manager-gui" />
         
 </tomcat-users>
@@ -27,11 +28,13 @@ Tomcat conf/tomcat-users.xml
 Maven conf/settings.xml
 
 <servers>  
+
     <server>
        <id>TomcatServer</id>
        <username>admin</username>
-       <password>yourpassword</password>
+       <password>youradminpassword</password>
     </server>
+
 </servers>
 
 Commands to execute
