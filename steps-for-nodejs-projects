@@ -1,0 +1,59 @@
+Favorite text editor is http://www.sublimetext.com/ 
+
+1. Install node.js v0.12.4 from http://nodejs.org/
+2. Check version for the successful install - node -v     0.12.4
+3. Check version of npm - npm -v        2.51
+4. Install express web server npm install -g express
+5. Install express-generator npm install -g express-generator
+6. Now use the express to create the project structure template, let the project name is nodetest2 then fire the below command
+  express nodetest2
+7.  cd nodetest2
+8. Open the package.json and make the addiotional entries for mongo and monk under depenendecies
+    "mongodb": "^1.4.4",
+        "monk": "^1.0.1"
+9. run npm install from command line
+10. mkdir data    - this is used to store the data for mongodb
+11. command to install mongodb in windows msiexec.exe /q /i mongodb-win32-x86_64-2008plus-ssl-3.2.7-signed.msi INSTALLLOCATION="C:\mongodb" ADDLOCAL="all"
+note install as administrator
+12. open the layout.jade file and add the following entries for the jQuery for REST API call using AJAX and create a global.js file in public/javascripts
+  script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+        script(src='/javascripts/global.js')
+13.Edit views/index.jade with following entry - note used notepad++ and set tab 4 and resplace space set to true
+      block content
+    h1= title
+    p Welcome to our test
+
+    // Wrapper
+    #wrapper
+
+        // USER LIST
+        h2 User List
+        #userList
+            table
+                thead
+                    th UserName
+                    th Email
+                    th Delete?
+                tbody
+        // /USER LIST
+
+    // /WRAPPER
+
+14. use npm start to start the node server using express
+15. install mogodb
+16. start mongodb for a data path - mongod --dbpath c:\test\mongodb\data
+17. create database in another terminal - mongo nodtest
+18. use the db.userlist.insert({json structure})  -- userlist is the table/schema name
+19. 
+
+
+Install chocolatey on widows machine as follows
+
+
+
+
+
+
+Reference: http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/
+          http://cwbuecheler.com/web/tutorials/2014/restful-web-app-node-express-mongodb/
+          
