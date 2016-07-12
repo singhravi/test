@@ -1,2 +1,20 @@
 Important Sites Links
 Reg Expression in Java - http://www.javatpoint.com/java-regex
+Cron Scheduler Maker - http://www.cronmaker.com/
+daily 12pm
+ 	0 0 12 1/1 * ? *
+ 	Every Minute
+ 	 	0 0/1 * 1/1 * ? *
+Every hour
+0 0 0/1 1/1 * ? *
+Every hour, first start at 12pm
+ 	0 0 12 1/1 * ? *
+Weekly - Sat/Sun at 12pm
+ 	0 0 12 ? * SAT,SUN *
+Mon, Tue, Sat, Sun at 12pm
+0 0 12 ? * MON,TUE,SAT,SUN *
+1st Mon of every month
+ 	0 0 12 ? 1/1 MON#1 *
+1st Mon of every year July
+0 0 12 ? 7 MON#1 *
+ 	
