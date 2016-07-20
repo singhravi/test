@@ -1,0 +1,118 @@
+Steps to Create Web Service in JAX-WS
+1. Create WSDL file
+2. Create JAX-WS SEI and SEI implementor
+    2.1 Create JAXB class
+    2.2 Create Exception class
+    2.3 Create Fault class
+    2.4 Create Endppoint Publisher
+    
+    public static void main(String[] args) {
+	   Endpoint.publish("http://localhost:9999/ws/hello", new HelloWorldImpl());
+    }
+    2.5 Create client from published wsdl using wsimport
+
+
+
+Steps to create web service client/consumer using JAX-WS (wsimport)
+c:\>wsimport -keep <wsdl-file or WSDL URL> -Xnocompile -p <package-name> -s <directory for generated source file> -d <directory where to keep generated output files>
+
+
+JAXB definition of Request and Response with getter and setter
+
+Describing the property order and overriding the default name
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "", propOrder = {
+    "appkey",
+    "userID",
+    "idType"
+})
+@XmlRootElement(name = "UserProfileRequest")
+public class UserProfileRequest {
+
+    @XmlElement(required = true)
+    protected String appkey;
+    @XmlElement(name = "UserID", required = true)
+    protected String userID;
+    @XmlElementRef(name = "IDType", type = JAXBElement.class, required = false)
+    protected JAXBElement<String> idType;
+}
+----------------------------------------
+Collection of UserProfileRecord
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "UserProfileResult", propOrder = {
+    "version",
+    "count",
+    "record"
+})
+public class UserProfileResult {
+
+    @XmlElement(required = true)
+    protected String version;
+    protected int count;
+    @XmlElement(required = true)
+    protected List<UserProfileRecord> record;
+
+}
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "UserProfileRecord", propOrder = {
+
+})
+public class UserProfileRecord {
+
+    @XmlElement(required = true)
+    protected String uuid;
+    @XmlElement(required = true)
+    protected String empid;
+    @XmlElement(required = true)
+    protected String racfid;
+    @XmlElement(required = true)
+    protected String name;
+    @XmlElement(required = true)
+    protected String lastname;
+    @XmlElement(required = true)
+    protected String firstname;
+    @XmlElement(required = true)
+    protected String jgroup;
+    @XmlElement(required = true)
+    protected String jclass;
+    @XmlElement(required = true)
+    protected String center;
+    @XmlElement(required = true)
+    protected String emptype;
+    @XmlElement(required = true)
+    protected String jfunction;
+    @XmlElement(required = true)
+    protected String country;
+    @XmlElement(required = true)
+    protected String district;
+    @XmlElement(required = true)
+    protected String region;
+    @XmlElement(required = true)
+    protected String language;
+    @XmlElement(required = true)
+    protected String upsEmail;
+    @XmlElement(required = true)
+    protected String title;
+    @XmlElement(required = true)
+    protected String department;
+    @XmlElement(required = true)
+    protected String company;
+    @XmlElement(required = true)
+    protected String office;
+    @XmlElement(required = true)
+    protected String street;
+    @XmlElement(required = true)
+    protected String city;
+    @XmlElement(required = true)
+    protected String state;
+    @XmlElement(required = true)
+    protected String zip;
+    @XmlElement(required = true)
+    protected String telephone;
+    @XmlElement(required = true)
+    protected String pager;
+    @XmlElement(required = true)
+    protected String mobile;
+    }
