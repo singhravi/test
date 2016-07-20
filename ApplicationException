@@ -1,0 +1,43 @@
+package com.rs.exception;
+
+/**
+ *
+ * @author Ravi Singh
+ */
+public class ApplicativeException extends Exception {
+	private static final long serialVersionUID = 1L;
+	private String m_csError = null;
+	private String m_csMessage = null;
+	private Throwable m_throwable = null;
+
+	protected ApplicativeException(ApplicativeException e) {
+		super(e);
+		m_csError = e.m_csError;
+		m_csMessage = e.m_csMessage;
+		m_throwable = e.m_throwable;
+	}
+
+	protected ApplicativeException(String csError, String csMessage) {
+		m_csError = csError;
+		m_csMessage = csMessage;
+		m_throwable = new Throwable();
+	}
+
+	protected ApplicativeException(String csError, String csMessage, Throwable throwable) {
+		m_csError = csError;
+		m_csMessage = csMessage;
+		m_throwable = throwable;
+	}
+
+	public String getCode() {
+		return m_csError;
+	}
+
+	public String getMessage() {
+		return m_csMessage;
+	}
+
+	public Throwable getThrowable() {
+		return m_throwable;
+	}
+}
