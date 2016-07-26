@@ -14,8 +14,57 @@ Steps to Create Web Service in JAX-WS
 
 
 
+
 Steps to create web service client/consumer using JAX-WS (wsimport)
 c:\>wsimport -keep <wsdl-file or WSDL URL> -Xnocompile -p <package-name> -s <directory for generated source file> -d <directory where to keep generated output files>
+
+
+Use @WebServlet as client to call a web service using 3.1 Servlet
+
+@WebServlet(name="HelloServlet", urlPatterns={"/HelloServlet"})
+public class HelloServlet extends HttpServlet {
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/helloservice/HelloService.wsdl")
+    private HelloService service;
+   
+    /** 
+     * Processes requests for both HTTP <code>GET</code> 
+     *   and <code>POST</code> methods.
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, 
+            HttpServletResponse response)
+    throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        try {
+            
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet HelloServlet</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet HelloServlet at " + 
+                request.getContextPath () + "</h1>");
+            out.println("<p>" + sayHello("world") + "</p>");
+            out.println("</body>");
+            out.println("</html>");
+            
+        } finally { 
+            out.close();
+        }
+    } 
+    
+    // doGet and doPost methods, which call processRequest, and
+    //   getServletInfo method
+    
+    private String sayHello(java.lang.String arg0) {
+        helloservice.endpoint.Hello port = service.getHelloPort();
+        return port.sayHello(arg0);
+    }
+}
 
 
 JAXB definition of Request and Response with getter and setter
